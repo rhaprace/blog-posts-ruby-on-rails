@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="post-detail">
+    <h1><%= @post.title %></h1>
+    <p class="post-meta">Published on <%= @post.publish_at.strftime("%B %d, %Y at %I:%M %p") %></p>
+
+    <div class="post-content">
+      <%= simple_format(@post.content) %>
+    </div>
+
+    <div class="post-actions">
+      <%= link_to "← Back to Posts", posts_path, class: "btn btn-secondary" %>
+      <%= link_to "Edit", edit_post_path(@post), class: "btn btn-secondary" %>
+      <%= button_to "Delete", post_path(@post), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>
