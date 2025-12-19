@@ -1,17 +1,5 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
-# Clear existing posts
 Post.destroy_all
 
-# Create published posts (publish_at in the past)
 Post.create!(
   title: "Welcome to My Blog",
   content: "This is my first blog post! I'm excited to share my thoughts and experiences with you. This post was published yesterday, so it should be visible on the index page.",
@@ -30,7 +18,6 @@ Post.create!(
   publish_at: Time.current
 )
 
-# Create scheduled posts (publish_at in the future)
 Post.create!(
   title: "Future Post: Coming Tomorrow",
   content: "This post is scheduled to be published tomorrow. You won't see it on the index page until tomorrow arrives! This demonstrates the scheduled publishing feature.",
